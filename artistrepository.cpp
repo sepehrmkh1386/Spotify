@@ -1,6 +1,7 @@
 #include "artistrepository.h"
 #include <QFile>
 #include <QTextStream>
+#include<QStringList>
 
 ArtistRepository::ArtistRepository()
 {
@@ -65,7 +66,40 @@ Artist* ArtistRepository::searchByUserName(const QString &userName)
 
 void ArtistRepository::load()
 {
+    data.clear();
 
+    QFile file("Data/artists.txt");
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+
+    QTextStream in(&file);
+
+    while (!in.atEnd())
+    {
+        QString line = in.readLine();
+
+        if (line.isEmpty())
+            continue;
+
+        QStringList parts = line.split('|');
+
+        if (parts.size() != 6)
+            continue;
+
+        Artist artist(
+            parts[0].toInt(),
+            parts[1],
+            parts[2],
+            parts[3],
+            parts[4],
+            parts[5]
+            );
+
+        data.append(artist);
+    }
+
+    file.close();
 }
 void ArtistRepository::save()
 {
@@ -76,14 +110,14 @@ void ArtistRepository::save()
 
     QTextStream out(&file);
 
-    for (const Artist &artist : data)
+    for (int i=0;i<data.size();++i)
     {
+        const Artist &artist =data.at(i);
         out << artist.getId() << "|"
             << artist.getFullName() << "|"
             << artist.getUserName() << "|"
             << artist.getBiography() << "|"
             << artist.getPassword() << "|"
-            << static_cast<int>(artist.getRole()) << "|"
             << artist.getProfilePhoto()
             << "\n";
     }
