@@ -1,4 +1,6 @@
 #include "artistrepository.h"
+#include <QFile>
+#include <QTextStream>
 
 ArtistRepository::ArtistRepository()
 {
@@ -7,6 +9,7 @@ ArtistRepository::ArtistRepository()
 void ArtistRepository::add(const Artist &item)
 {
     data.append(item);
+    save();
 }
 
 void ArtistRepository::remove(int id)
@@ -64,8 +67,26 @@ void ArtistRepository::load()
 {
 
 }
-
 void ArtistRepository::save()
 {
+    QFile file("Data/artists.txt");
 
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
+        return;
+
+    QTextStream out(&file);
+
+    for (const Artist &artist : data)
+    {
+        out << artist.getId() << "|"
+            << artist.getFullName() << "|"
+            << artist.getUserName() << "|"
+            << artist.getBiography() << "|"
+            << artist.getPassword() << "|"
+            << static_cast<int>(artist.getRole()) << "|"
+            << artist.getProfilePhoto()
+            << "\n";
+    }
+
+    file.close();
 }
