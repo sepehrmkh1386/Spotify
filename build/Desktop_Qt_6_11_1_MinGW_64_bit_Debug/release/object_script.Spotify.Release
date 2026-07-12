@@ -1,0 +1,12 @@
+release/abstractrepository.o
+release/account.o
+release/accountrepository.o
+release/album.o
+release/artist.o
+release/artistrepository.o
+release/listener.o
+release/main.o
+release/mainwindow.o
+release/playlist.o
+release/song.o
+release/moc_mainwindow.o

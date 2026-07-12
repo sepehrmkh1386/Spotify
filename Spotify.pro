@@ -7,9 +7,12 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    abstractrepository.cpp \
     account.cpp \
+    accountrepository.cpp \
     album.cpp \
     artist.cpp \
+    artistrepository.cpp \
     listener.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -17,9 +20,12 @@ SOURCES += \
     song.cpp
 
 HEADERS += \
+    abstractrepository.h \
     account.h \
+    accountrepository.h \
     album.h \
     artist.h \
+    artistrepository.h \
     listener.h \
     mainwindow.h \
     playlist.h \
