@@ -2,6 +2,7 @@ release/abstractrepository.o
 release/account.o
 release/accountrepository.o
 release/album.o
+release/albumrepository.o
 release/artist.o
 release/artistrepository.o
 release/listener.o
