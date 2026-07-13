@@ -5,6 +5,7 @@ release/album.o
 release/artist.o
 release/artistrepository.o
 release/listener.o
+release/listenerrepository.o
 release/main.o
 release/mainwindow.o
 release/playlist.o
