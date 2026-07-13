@@ -10,4 +10,5 @@ debug/main.o
 debug/mainwindow.o
 debug/playlist.o
 debug/song.o
+debug/songrepository.o
 debug/moc_mainwindow.o

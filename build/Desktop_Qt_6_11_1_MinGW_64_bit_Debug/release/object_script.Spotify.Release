@@ -10,4 +10,5 @@ release/main.o
 release/mainwindow.o
 release/playlist.o
 release/song.o
+release/songrepository.o
 release/moc_mainwindow.o

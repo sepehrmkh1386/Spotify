@@ -22,7 +22,7 @@ public:
          int releaseYear,
          QString genre,
          QString fileName,
-         int atristId,
+         int artistId,
          int albumId,
          QString cover);
 
