@@ -8,6 +8,11 @@ RepositoryManager::RepositoryManager()
     albumRepository.load();
     playlistRepository.load();
 }
+RepositoryManager&RepositoryManager::instance()
+{
+    static RepositoryManager manager;
+    return manager;
+}
 
 ArtistRepository& RepositoryManager::artists()
 {

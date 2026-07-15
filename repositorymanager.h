@@ -15,8 +15,11 @@ private:
     SongRepository songRepository;
     AlbumRepository albumRepository;
     PlaylistRepository playlistRepository;
-public:
+
     RepositoryManager();
+public:
+    static RepositoryManager&instance();
+
     ArtistRepository& artists();
     ListenerRepository& listeners();
     SongRepository& songs();
