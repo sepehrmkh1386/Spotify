@@ -10,6 +10,8 @@ debug/listenerrepository.o
 debug/main.o
 debug/mainwindow.o
 debug/playlist.o
+debug/playlistrepository.o
+debug/repositorymanager.o
 debug/song.o
 debug/songrepository.o
 debug/moc_mainwindow.o

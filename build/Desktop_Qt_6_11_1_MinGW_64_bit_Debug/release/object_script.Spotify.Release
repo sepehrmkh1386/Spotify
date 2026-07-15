@@ -10,6 +10,8 @@ release/listenerrepository.o
 release/main.o
 release/mainwindow.o
 release/playlist.o
+release/playlistrepository.o
+release/repositorymanager.o
 release/song.o
 release/songrepository.o
 release/moc_mainwindow.o
