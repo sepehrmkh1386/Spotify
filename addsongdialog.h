@@ -1,13 +1,13 @@
 #ifndef ADDSONGDIALOG_H
 #define ADDSONGDIALOG_H
 
-#include <QMainWindow>
+#include <QDialog>
 
 namespace Ui {
 class AddSongDialog;
 }
 
-class AddSongDialog : public QMainWindow
+class AddSongDialog : public QDialog
 {
     Q_OBJECT
 

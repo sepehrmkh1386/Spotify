@@ -1,9 +1,11 @@
 release/abstractrepository.o
 release/account.o
 release/accountrepository.o
+release/addsongdialog.o
 release/album.o
 release/albumrepository.o
 release/artist.o
+release/artistdashboard.o
 release/artistrepository.o
 release/authenticationservice.o
 release/listener.o
@@ -15,4 +17,6 @@ release/playlistrepository.o
 release/repositorymanager.o
 release/song.o
 release/songrepository.o
+release/moc_addsongdialog.o
+release/moc_artistdashboard.o
 release/moc_mainwindow.o

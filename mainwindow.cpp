@@ -3,6 +3,7 @@
 
 #include <QmessageBox>
 #include "listener.h"
+#include "artistdashboard.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

@@ -12,3 +12,10 @@ ArtistDashboard::~ArtistDashboard()
 {
     delete ui;
 }
+
+void ArtistDashboard::on_addSongButton_clicked()
+{
+    AddSongDialog dialog(this);
+    dialog.exec();
+}
+
