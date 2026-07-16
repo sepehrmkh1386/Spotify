@@ -5,6 +5,7 @@ release/album.o
 release/albumrepository.o
 release/artist.o
 release/artistrepository.o
+release/authenticationservice.o
 release/listener.o
 release/listenerrepository.o
 release/main.o

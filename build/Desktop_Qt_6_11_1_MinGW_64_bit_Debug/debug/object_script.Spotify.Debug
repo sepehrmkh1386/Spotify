@@ -5,6 +5,7 @@ debug/album.o
 debug/albumrepository.o
 debug/artist.o
 debug/artistrepository.o
+debug/authenticationservice.o
 debug/listener.o
 debug/listenerrepository.o
 debug/main.o

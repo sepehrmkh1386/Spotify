@@ -13,6 +13,7 @@ public:
     void add(const Listener &item) override;
     void remove(int id )override;
     void update(const Listener &item)override;
+    int generateNextId();
     Listener* getById(int id)override;
     QList<Listener> getAll()override;
     Listener* searchByUserName(const QString &userName) override;

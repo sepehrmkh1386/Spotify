@@ -36,7 +36,21 @@ void ListenerRepository::update(const Listener &item)
         }
     }
 }
+int ListenerRepository::generateNextId()
+{
+    if (data.isEmpty())
+        return 1;
 
+    int maxId = data[0].getId();
+
+    for (int i = 1; i < data.size(); i++)
+    {
+        if (data[i].getId() > maxId)
+            maxId = data[i].getId();
+    }
+
+    return maxId + 1;
+}
 Listener* ListenerRepository::getById(int id)
 {
     for (int i = 0; i < data.size(); i++)

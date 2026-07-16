@@ -10,10 +10,13 @@ SOURCES += \
     abstractrepository.cpp \
     account.cpp \
     accountrepository.cpp \
+    addsongdialog.cpp \
     album.cpp \
     albumrepository.cpp \
     artist.cpp \
+    artistdashboard.cpp \
     artistrepository.cpp \
+    authenticationservice.cpp \
     listener.cpp \
     listenerrepository.cpp \
     main.cpp \
@@ -28,10 +31,13 @@ HEADERS += \
     abstractrepository.h \
     account.h \
     accountrepository.h \
+    addsongdialog.h \
     album.h \
     albumrepository.h \
     artist.h \
+    artistdashboard.h \
     artistrepository.h \
+    authenticationservice.h \
     listener.h \
     listenerrepository.h \
     mainwindow.h \
@@ -42,6 +48,8 @@ HEADERS += \
     songrepository.h
 
 FORMS += \
+    addsongdialog.ui \
+    artistdashboard.ui \
     mainwindow.ui
 
 # Default rules for deployment.

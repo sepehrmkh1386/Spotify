@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "authenticationservice.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -19,5 +20,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    AuthenticationService authService;
+private slots:
+    void on_signUpButton_clicked();
+    void on_loginButton_clicked();
 };
 #endif // MAINWINDOW_H

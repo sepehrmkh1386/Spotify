@@ -36,6 +36,21 @@ void ArtistRepository::update(const Artist &item)
         }
     }
 }
+int ArtistRepository::generateNextId()
+{
+    if (data.isEmpty())
+        return 1;
+
+    int maxId = data[0].getId();
+
+    for (int i = 1; i < data.size(); i++)
+    {
+        if (data[i].getId() > maxId)
+            maxId = data[i].getId();
+    }
+
+    return maxId + 1;
+}
 
 Artist* ArtistRepository::getById(int id)
 {
@@ -101,8 +116,10 @@ void ArtistRepository::load()
 
     file.close();
 }
+
 void ArtistRepository::save()
 {
+
     QFile file("Data/artists.txt");
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))

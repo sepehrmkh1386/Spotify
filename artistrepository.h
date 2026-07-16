@@ -12,6 +12,7 @@ public:
     void add(const Artist &item) override;
     void remove(int id) override;
     void update(const Artist &item) override;
+    int generateNextId();
     Artist* getById(int id) override;
     QList<Artist> getAll() override;
 
