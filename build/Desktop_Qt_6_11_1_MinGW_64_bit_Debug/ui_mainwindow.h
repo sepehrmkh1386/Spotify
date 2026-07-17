@@ -51,11 +51,7 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(795, 592);
-        MainWindow->setStyleSheet(QString::fromUtf8("QWidget\n"
-"{\n"
-"background-color: #121212;\n"
-"color: white;\n"
-"}"));
+        MainWindow->setStyleSheet(QString::fromUtf8(""));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         title = new QLabel(centralwidget);

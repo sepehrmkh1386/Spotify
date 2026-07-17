@@ -29,12 +29,13 @@ public:
     QLabel *title;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
+    QLabel *coverLabel;
     QPushButton *chooseCoverButton;
     QLabel *label_4;
-    QLabel *label_2;
     QPushButton *chooseSongButton;
+    QLabel *label_2;
     QComboBox *albumComboBox;
-    QLabel *label_3;
+    QLineEdit *songPathEdit;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
     QSpinBox *releaseYearSpinBox;
@@ -96,6 +97,14 @@ public:
 "}"));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName("gridLayout_2");
+        coverLabel = new QLabel(groupBox_2);
+        coverLabel->setObjectName("coverLabel");
+        coverLabel->setStyleSheet(QString::fromUtf8("color:white;\n"
+"font-size:13pt;\n"
+"font-weight:bold;"));
+
+        gridLayout_2->addWidget(coverLabel, 3, 0, 1, 1);
+
         chooseCoverButton = new QPushButton(groupBox_2);
         chooseCoverButton->setObjectName("chooseCoverButton");
         chooseCoverButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
@@ -111,7 +120,7 @@ public:
 "}\n"
 ""));
 
-        gridLayout_2->addWidget(chooseCoverButton, 3, 0, 1, 1);
+        gridLayout_2->addWidget(chooseCoverButton, 4, 0, 1, 1);
 
         label_4 = new QLabel(groupBox_2);
         label_4->setObjectName("label_4");
@@ -120,15 +129,7 @@ public:
 "font-weight:bold;\n"
 ""));
 
-        gridLayout_2->addWidget(label_4, 4, 0, 1, 1);
-
-        label_2 = new QLabel(groupBox_2);
-        label_2->setObjectName("label_2");
-        label_2->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size:13pt;\n"
-"font-weight:bold;"));
-
-        gridLayout_2->addWidget(label_2, 0, 0, 1, 1);
+        gridLayout_2->addWidget(label_4, 5, 0, 1, 1);
 
         chooseSongButton = new QPushButton(groupBox_2);
         chooseSongButton->setObjectName("chooseSongButton");
@@ -146,6 +147,14 @@ public:
 
         gridLayout_2->addWidget(chooseSongButton, 1, 0, 1, 1);
 
+        label_2 = new QLabel(groupBox_2);
+        label_2->setObjectName("label_2");
+        label_2->setStyleSheet(QString::fromUtf8("color:white;\n"
+"font-size:13pt;\n"
+"font-weight:bold;"));
+
+        gridLayout_2->addWidget(label_2, 0, 0, 1, 1);
+
         albumComboBox = new QComboBox(groupBox_2);
         albumComboBox->setObjectName("albumComboBox");
         albumComboBox->setStyleSheet(QString::fromUtf8("QComboBox\n"
@@ -162,15 +171,25 @@ public:
 "border:2px solid #1DB954;\n"
 "}"));
 
-        gridLayout_2->addWidget(albumComboBox, 5, 0, 1, 1);
+        gridLayout_2->addWidget(albumComboBox, 6, 0, 1, 1);
 
-        label_3 = new QLabel(groupBox_2);
-        label_3->setObjectName("label_3");
-        label_3->setStyleSheet(QString::fromUtf8("color:white;\n"
-"font-size:13pt;\n"
-"font-weight:bold;"));
+        songPathEdit = new QLineEdit(groupBox_2);
+        songPathEdit->setObjectName("songPathEdit");
+        songPathEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"background-color :#202020;\n"
+"color:white;\n"
+"border:2px solid #303030;\n"
+"border-radius:8px;\n"
+"padding:6px;\n"
+"}\n"
+"QLineEdit:focus\n"
+"{\n"
+"border:2px solid #1DB954;\n"
+"}"));
+        songPathEdit->setReadOnly(true);
 
-        gridLayout_2->addWidget(label_3, 2, 0, 1, 1);
+        gridLayout_2->addWidget(songPathEdit, 2, 0, 1, 1);
 
         groupBox = new QGroupBox(AddSongDialog);
         groupBox->setObjectName("groupBox");
@@ -307,11 +326,11 @@ public:
         saveButton->setText(QCoreApplication::translate("AddSongDialog", "Save", nullptr));
         title->setText(QCoreApplication::translate("AddSongDialog", "Add New Song", nullptr));
         groupBox_2->setTitle(QString());
+        coverLabel->setText(QCoreApplication::translate("AddSongDialog", "Cover", nullptr));
         chooseCoverButton->setText(QCoreApplication::translate("AddSongDialog", "Choose cover", nullptr));
         label_4->setText(QCoreApplication::translate("AddSongDialog", "Album", nullptr));
-        label_2->setText(QCoreApplication::translate("AddSongDialog", "Song", nullptr));
         chooseSongButton->setText(QCoreApplication::translate("AddSongDialog", "Choose Song", nullptr));
-        label_3->setText(QCoreApplication::translate("AddSongDialog", "Cover", nullptr));
+        label_2->setText(QCoreApplication::translate("AddSongDialog", "Song", nullptr));
         groupBox->setTitle(QString());
         GenreComboBox->setItemText(0, QCoreApplication::translate("AddSongDialog", "Pop", nullptr));
         GenreComboBox->setItemText(1, QCoreApplication::translate("AddSongDialog", "Rap", nullptr));

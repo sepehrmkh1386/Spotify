@@ -19,8 +19,11 @@ public:
 private slots:
     void on_addSongButton_clicked();
 
+    void on_logoutButton_clicked();
+
 private:
     Ui::ArtistDashboard *ui;
+    void loadSongs();
 };
 
 #endif // ARTISTDASHBOARD_H

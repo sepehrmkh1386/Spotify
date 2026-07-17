@@ -17,6 +17,8 @@ public:
 
     void load()override;
     void save()override;
+
+    int generateNextId();
 };
 
 #endif // SONGREPOSITORY_H

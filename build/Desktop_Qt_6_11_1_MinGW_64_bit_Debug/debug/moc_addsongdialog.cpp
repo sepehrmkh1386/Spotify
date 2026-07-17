@@ -38,10 +38,20 @@ template <> constexpr inline auto AddSongDialog::qt_create_metaobjectdata<qt_met
 {
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
-        "AddSongDialog"
+        "AddSongDialog",
+        "on_chooseSongButton_clicked",
+        "",
+        "on_chooseCoverButton_clicked",
+        "on_saveButton_clicked"
     };
 
     QtMocHelpers::UintData qt_methods {
+        // Slot 'on_chooseSongButton_clicked'
+        QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_chooseCoverButton_clicked'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_saveButton_clicked'
+        QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -63,9 +73,14 @@ Q_CONSTINIT const QMetaObject AddSongDialog::staticMetaObject = { {
 void AddSongDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     auto *_t = static_cast<AddSongDialog *>(_o);
-    (void)_t;
-    (void)_c;
-    (void)_id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: _t->on_chooseSongButton_clicked(); break;
+        case 1: _t->on_chooseCoverButton_clicked(); break;
+        case 2: _t->on_saveButton_clicked(); break;
+        default: ;
+        }
+    }
     (void)_a;
 }
 
@@ -85,6 +100,18 @@ void *AddSongDialog::qt_metacast(const char *_clname)
 int AddSongDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
     _id = QDialog::qt_metacall(_c, _id, _a);
+    if (_id < 0)
+        return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        if (_id < 3)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 3;
+    }
+    if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 3)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 3;
+    }
     return _id;
 }
 QT_WARNING_POP

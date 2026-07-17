@@ -121,3 +121,16 @@ void SongRepository::load()
 
     file.close();
 }
+
+int SongRepository::generateNextId()
+{
+
+    int maxId =0;
+
+    for(const Song &song :data)
+    {
+        if(song.getId() > maxId)
+            maxId =song.getId();
+    }
+    return maxId +1;
+}
