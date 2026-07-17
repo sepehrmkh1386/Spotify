@@ -66,26 +66,68 @@ void AddSongDialog::on_saveButton_clicked()
 
     SongRepository &repo = RepositoryManager::instance().songs();
 
-    int id = repo.generateNextId();
+    if(editingSong == nullptr)
+    {
+        int id = repo.generateNextId();
 
-    int artistId = 0;
-    int albumId = 0;
+        Song song(id,
+                  name,
+                  year,
+                  genre,
+                  selectedSongPath,
+                  0,
+                  0,
+                  selectedCoverPath);
 
-    Song song(id,
-              name,
-              year,
-              genre,
-              selectedSongPath,
-              artistId,
-              albumId,
-              selectedCoverPath);
+        repo.add(song);
+    }
+    else
+    {
+        editingSong->setName(name);
+        editingSong->setReleaseYear(year);
+        editingSong->setGenre(genre);
+        editingSong->setFileName(selectedSongPath);
+        editingSong->setCover(selectedCoverPath);
 
-    repo.add(song);
-
-    QMessageBox::information(this,
+        repo.update(*editingSong);
+    }
+    if(editingSong == nullptr)
+    {
+        QMessageBox::information(this,
                              "Success",
-                             "Song added successfully.");
+                                 "Song added successfully.");
+    }
 
-    accept();
+    else
+    {
+        QMessageBox::information(this,
+                                 "Success",
+                                 "Song updated successfully");
+    }
 }
+void AddSongDialog::setSong(Song *song)
+{
+    editingSong = song;
 
+    ui->SongNameEdit->setText(song->getName());
+    ui->releaseYearSpinBox->setValue(song->getReleaseYear());
+
+    ui->GenreComboBox->setCurrentText(song->getGenre());
+
+    selectedSongPath = song->getFileName();
+    selectedCoverPath = song->getCover();
+
+    ui->songPathEdit->setText(selectedSongPath);
+
+    if(!selectedCoverPath.isEmpty())
+    {
+        QPixmap pixmap(selectedCoverPath);
+
+        ui->coverLabel->setPixmap(
+            pixmap.scaled(ui->coverLabel->size(),
+                          Qt::KeepAspectRatio,
+                          Qt::SmoothTransformation));
+    }
+
+    ui->saveButton->setText("Save Changes");
+}

@@ -34,6 +34,7 @@ public:
     QListWidget *SongsList;
     QPushButton *addSongButton;
     QPushButton *deleteSongButton;
+    QPushButton *editSongButton;
     QPushButton *logoutButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -158,8 +159,12 @@ public:
 ""));
         deleteSongButton = new QPushButton(groupBox_2);
         deleteSongButton->setObjectName("deleteSongButton");
-        deleteSongButton->setGeometry(QRect(120, 330, 93, 29));
+        deleteSongButton->setGeometry(QRect(70, 330, 93, 29));
         deleteSongButton->setStyleSheet(QString::fromUtf8("color :#E53935;"));
+        editSongButton = new QPushButton(groupBox_2);
+        editSongButton->setObjectName("editSongButton");
+        editSongButton->setGeometry(QRect(170, 330, 93, 29));
+        editSongButton->setStyleSheet(QString::fromUtf8("color : #1976D2;"));
         logoutButton = new QPushButton(centralwidget);
         logoutButton->setObjectName("logoutButton");
         logoutButton->setGeometry(QRect(690, 0, 93, 41));
@@ -203,6 +208,7 @@ public:
         groupBox_2->setTitle(QCoreApplication::translate("ArtistDashboard", "Your Songs", nullptr));
         addSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Create Songs", nullptr));
         deleteSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Delete Song", nullptr));
+        editSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Edit Song", nullptr));
         logoutButton->setText(QCoreApplication::translate("ArtistDashboard", "Logout", nullptr));
     } // retranslateUi
 

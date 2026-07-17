@@ -23,6 +23,8 @@ private slots:
 
     void on_deleteSongButton_clicked();
 
+    void on_editSongButton_clicked();
+
 private:
     Ui::ArtistDashboard *ui;
     void loadSongs();

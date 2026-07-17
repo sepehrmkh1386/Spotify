@@ -209,7 +209,7 @@ background-color: #169C46;
     <widget class="QPushButton" name="deleteSongButton">
      <property name="geometry">
       <rect>
-       <x>120</x>
+       <x>70</x>
        <y>330</y>
        <width>93</width>
        <height>29</height>
@@ -220,6 +220,22 @@ background-color: #169C46;
      </property>
      <property name="text">
       <string>Delete Song</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="editSongButton">
+     <property name="geometry">
+      <rect>
+       <x>170</x>
+       <y>330</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color : #1976D2;</string>
+     </property>
+     <property name="text">
+      <string>Edit Song</string>
      </property>
     </widget>
    </widget>

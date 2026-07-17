@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 #include "repositorymanager.h"
+#include "addsongdialog.h"
 #include <QMessageBox>
 ArtistDashboard::ArtistDashboard(QWidget *parent)
     : QMainWindow(parent)
@@ -77,3 +78,38 @@ void ArtistDashboard::on_deleteSongButton_clicked()
                              "Success",
                              "Song deleted successfully.");
 }
+
+void ArtistDashboard::on_editSongButton_clicked()
+{
+    QListWidgetItem *item = ui ->SongsList->currentItem();
+
+    if(item == nullptr)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
+    }
+    int songId = item->data(Qt::UserRole).toInt();
+
+    Song *song =
+        RepositoryManager::instance().songs().getById(songId);
+
+    if(song == nullptr)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Song not found.");
+        return;
+    }
+
+    AddSongDialog dialog(this);
+
+    dialog.setSong(song);
+
+    if(dialog.exec() == QDialog::Accepted)
+    {
+        loadSongs();
+    }
+}
+
