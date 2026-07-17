@@ -21,6 +21,8 @@ private slots:
 
     void on_logoutButton_clicked();
 
+    void on_deleteSongButton_clicked();
+
 private:
     Ui::ArtistDashboard *ui;
     void loadSongs();

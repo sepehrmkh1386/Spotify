@@ -3,6 +3,7 @@
 
 #include "mainwindow.h"
 #include "repositorymanager.h"
+#include <QMessageBox>
 ArtistDashboard::ArtistDashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ArtistDashboard)
@@ -19,7 +20,10 @@ ArtistDashboard::~ArtistDashboard()
 void ArtistDashboard::on_addSongButton_clicked()
 {
     AddSongDialog dialog(this);
-    dialog.exec();
+    if(dialog.exec() == QDialog::Accepted)
+    {
+        loadSongs();
+    }
 }
 
 
@@ -36,11 +40,40 @@ void ArtistDashboard::loadSongs()
 
     QList<Song> songs = RepositoryManager::instance().songs().getAll();
 
-    for(const Song &song :songs)
+    for(const Song &song : songs)
     {
-        QString text = song.getName() + "|" + song.getGenre() + "|" + QString::number(song.getReleaseYear());
+        QString text = QString("%1   •   %2   •   %3")
+                           .arg(song.getName())
+                           .arg(song.getGenre())
+                           .arg(song.getReleaseYear());
 
-        ui->SongsList->addItem(text);
+        QListWidgetItem *item = new QListWidgetItem(text);
+
+        item->setData(Qt::UserRole, song.getId());
+
+        ui->SongsList->addItem(item);
+    }
+}
+
+void ArtistDashboard::on_deleteSongButton_clicked()
+{
+    QListWidgetItem *item = ui->SongsList->currentItem();
+
+    if(item == nullptr)
+    {
+        QMessageBox::warning(this,
+                             "Error",
+                             "Please select a song.");
+        return;
     }
 
+    int songId = item->data(Qt::UserRole).toInt();
+
+    RepositoryManager::instance().songs().remove(songId);
+
+    loadSongs();
+
+    QMessageBox::information(this,
+                             "Success",
+                             "Song deleted successfully.");
 }

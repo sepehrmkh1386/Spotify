@@ -33,6 +33,7 @@ public:
     QGroupBox *groupBox_2;
     QListWidget *SongsList;
     QPushButton *addSongButton;
+    QPushButton *deleteSongButton;
     QPushButton *logoutButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
@@ -155,6 +156,10 @@ public:
 "background-color: #169C46;\n"
 "}\n"
 ""));
+        deleteSongButton = new QPushButton(groupBox_2);
+        deleteSongButton->setObjectName("deleteSongButton");
+        deleteSongButton->setGeometry(QRect(120, 330, 93, 29));
+        deleteSongButton->setStyleSheet(QString::fromUtf8("color :#E53935;"));
         logoutButton = new QPushButton(centralwidget);
         logoutButton->setObjectName("logoutButton");
         logoutButton->setGeometry(QRect(690, 0, 93, 41));
@@ -197,6 +202,7 @@ public:
         addAlbumButton_2->setText(QCoreApplication::translate("ArtistDashboard", "Create Album", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("ArtistDashboard", "Your Songs", nullptr));
         addSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Create Songs", nullptr));
+        deleteSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Delete Song", nullptr));
         logoutButton->setText(QCoreApplication::translate("ArtistDashboard", "Logout", nullptr));
     } // retranslateUi
 

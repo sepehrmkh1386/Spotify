@@ -206,6 +206,22 @@ background-color: #169C46;
       <string>Create Songs</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="deleteSongButton">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>330</y>
+       <width>93</width>
+       <height>29</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color :#E53935;</string>
+     </property>
+     <property name="text">
+      <string>Delete Song</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QPushButton" name="logoutButton">
     <property name="geometry">
