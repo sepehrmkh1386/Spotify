@@ -16,7 +16,8 @@
   <property name="styleSheet">
    <string notr="true">QWidget
 {
-background-color: #121212
+background-color: #121212;
+color: white;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -129,7 +130,25 @@ background:transparent;
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="fullNameEdit"/>
+       <widget class="QLineEdit" name="fullNameEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+    background-color: #202020;
+    color: white;
+    border: 2px solid #303030;
+    border-radius: 8px;
+    padding: 6px;
+    selection-background-color: #1DB954;
+    selection-color: white;
+}
+
+QLineEdit:focus
+{
+    border: 2px solid #1DB954;
+}</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_2">
@@ -143,7 +162,25 @@ background:transparent;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="userNameEdit"/>
+       <widget class="QLineEdit" name="userNameEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+    background-color: #202020;
+    color: white;
+    border: 2px solid #303030;
+    border-radius: 8px;
+    padding: 6px;
+    selection-background-color: #1DB954;
+    selection-color: white;
+}
+
+QLineEdit:focus
+{
+    border: 2px solid #1DB954;
+}</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="label_3">
@@ -159,6 +196,23 @@ background:transparent;
       </item>
       <item>
        <widget class="QLineEdit" name="passwordEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+    background-color: #202020;
+    color: white;
+    border: 2px solid #303030;
+    border-radius: 8px;
+    padding: 6px;
+    selection-background-color: #1DB954;
+    selection-color: white;
+}
+
+QLineEdit:focus
+{
+    border: 2px solid #1DB954;
+}</string>
+        </property>
         <property name="echoMode">
          <enum>QLineEdit::EchoMode::Password</enum>
         </property>

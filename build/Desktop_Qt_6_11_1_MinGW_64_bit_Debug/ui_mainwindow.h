@@ -53,7 +53,8 @@ public:
         MainWindow->resize(795, 592);
         MainWindow->setStyleSheet(QString::fromUtf8("QWidget\n"
 "{\n"
-"background-color: #121212\n"
+"background-color: #121212;\n"
+"color: white;\n"
 "}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -112,6 +113,21 @@ public:
 
         fullNameEdit = new QLineEdit(layoutWidget);
         fullNameEdit->setObjectName("fullNameEdit");
+        fullNameEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"    background-color: #202020;\n"
+"    color: white;\n"
+"    border: 2px solid #303030;\n"
+"    border-radius: 8px;\n"
+"    padding: 6px;\n"
+"    selection-background-color: #1DB954;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QLineEdit:focus\n"
+"{\n"
+"    border: 2px solid #1DB954;\n"
+"}"));
 
         verticalLayout->addWidget(fullNameEdit);
 
@@ -124,6 +140,21 @@ public:
 
         userNameEdit = new QLineEdit(layoutWidget);
         userNameEdit->setObjectName("userNameEdit");
+        userNameEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"    background-color: #202020;\n"
+"    color: white;\n"
+"    border: 2px solid #303030;\n"
+"    border-radius: 8px;\n"
+"    padding: 6px;\n"
+"    selection-background-color: #1DB954;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QLineEdit:focus\n"
+"{\n"
+"    border: 2px solid #1DB954;\n"
+"}"));
 
         verticalLayout->addWidget(userNameEdit);
 
@@ -137,6 +168,21 @@ public:
 
         passwordEdit = new QLineEdit(layoutWidget);
         passwordEdit->setObjectName("passwordEdit");
+        passwordEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
+"{\n"
+"    background-color: #202020;\n"
+"    color: white;\n"
+"    border: 2px solid #303030;\n"
+"    border-radius: 8px;\n"
+"    padding: 6px;\n"
+"    selection-background-color: #1DB954;\n"
+"    selection-color: white;\n"
+"}\n"
+"\n"
+"QLineEdit:focus\n"
+"{\n"
+"    border: 2px solid #1DB954;\n"
+"}"));
         passwordEdit->setEchoMode(QLineEdit::EchoMode::Password);
 
         verticalLayout->addWidget(passwordEdit);

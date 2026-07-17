@@ -4,6 +4,7 @@
 #include <QmessageBox>
 #include "listener.h"
 #include "artistdashboard.h"
+#include "artist.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -38,9 +39,10 @@ void MainWindow::on_signUpButton_clicked()
 
     if(success)
     {
-        QMessageBox::information(this,
-                                 "Success",
-                                 "Account created successfully.");
+        QMessageBox msg(this);
+        msg.setWindowTitle("Success");
+        msg.setText("Account created successfully!");
+        msg.exec();
     }
     else
     {
@@ -51,15 +53,30 @@ void MainWindow::on_signUpButton_clicked()
 }
 void MainWindow::on_loginButton_clicked()
 {
-    QString userName =ui->userNameEdit->text();
+    QString userName = ui->userNameEdit->text();
     QString password = ui->passwordEdit->text();
 
-    if(authService.login(userName,password))
+    if(authService.login(userName, password))
     {
-        QMessageBox::information(this,"Success","","Welcome");
+        Account *user = authService.getCurrentUser();
+
+        if(user->getRole() == Role::Artist)
+        {
+            ArtistDashboard *dashboard = new ArtistDashboard();
+            dashboard->show();
+            this->hide();
+        }
+        else
+        {
+            QMessageBox::information(this,
+                                     "Listener",
+                                     "Listener dashboard is not implemented yet.");
+        }
     }
     else
     {
-        QMessageBox::warning(this,"Error","Invalid username or password." );
+        QMessageBox::warning(this,
+                             "Error",
+                             "Invalid username or password.");
     }
 }

@@ -69,7 +69,7 @@ public:
 "}"));
         title = new QLabel(AddSongDialog);
         title->setObjectName("title");
-        title->setGeometry(QRect(200, 10, 281, 53));
+        title->setGeometry(QRect(230, 10, 281, 53));
         QFont font;
         font.setPointSize(24);
         font.setBold(true);
