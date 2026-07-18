@@ -71,6 +71,7 @@ void AlbumRepository::save()
 
         out << album.getId() << "|"
             << album.getName() << "|"
+            <<album.getReleaseYear()<<"|"
             << album.getArtistId() << "|"
             << album.getCover()
             << "\n";
@@ -99,14 +100,15 @@ void AlbumRepository::load()
 
         QStringList parts = line.split('|');
 
-        if(parts.size() != 4)
+        if(parts.size() != 5)
             continue;
 
         Album album(
             parts[0].toInt(),
             parts[1],
             parts[2].toInt(),
-            parts[3]
+            parts[3].toInt(),
+            parts[4]
             );
 
         data.append(album);

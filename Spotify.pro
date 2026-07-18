@@ -10,6 +10,7 @@ SOURCES += \
     abstractrepository.cpp \
     account.cpp \
     accountrepository.cpp \
+    addalbumdialog.cpp \
     addsongdialog.cpp \
     album.cpp \
     albumrepository.cpp \
@@ -31,6 +32,7 @@ HEADERS += \
     abstractrepository.h \
     account.h \
     accountrepository.h \
+    addalbumdialog.h \
     addsongdialog.h \
     album.h \
     albumrepository.h \
@@ -48,6 +50,7 @@ HEADERS += \
     songrepository.h
 
 FORMS += \
+    addalbumdialog.ui \
     addsongdialog.ui \
     artistdashboard.ui \
     mainwindow.ui

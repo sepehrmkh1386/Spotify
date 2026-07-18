@@ -1,6 +1,7 @@
 debug/abstractrepository.o
 debug/account.o
 debug/accountrepository.o
+debug/addalbumdialog.o
 debug/addsongdialog.o
 debug/album.o
 debug/albumrepository.o
@@ -17,6 +18,7 @@ debug/playlistrepository.o
 debug/repositorymanager.o
 debug/song.o
 debug/songrepository.o
+debug/moc_addalbumdialog.o
 debug/moc_addsongdialog.o
 debug/moc_artistdashboard.o
 debug/moc_mainwindow.o

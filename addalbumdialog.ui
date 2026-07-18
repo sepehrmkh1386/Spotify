@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddAlbumDialog</class>
+ <widget class="QDialog" name="AddAlbumDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>722</width>
+    <height>582</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget
+{
+background:#121212;
+color:white;
+}
+</string>
+  </property>
+  <widget class="QLabel" name="newAlbumLabel">
+   <property name="geometry">
+    <rect>
+     <x>230</x>
+     <y>20</y>
+     <width>271</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>24</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color:#1DB954
+
+</string>
+   </property>
+   <property name="text">
+    <string>Create Album</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="saveButton">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>490</y>
+     <width>101</width>
+     <height>48</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton
+{
+background:#1DB954;
+color:white;
+border:none;
+border-radius:15px;
+font-size:15px;
+font-weight:bold;
+}
+QPushButton:hover
+{
+background:#1ED760;
+}
+QPushButton:pressed
+{
+background:#169C46;
+}</string>
+   </property>
+   <property name="text">
+    <string>Save Album</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>100</y>
+     <width>231</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox
+{
+color:white;
+font-weight:bold;
+border:2px solid #303030;
+border-radius:12px;
+margin-top:12px;
+}
+
+QGroupBox::title
+{
+subcontrol-origin:margin;
+left:10px;
+padding:0 5px;
+}
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="albumNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>60</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Album Name</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="albumNameEdit">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>130</y>
+      <width>121</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+{
+background:#202020;
+color:white;
+border:2px solid #303030;
+border-radius:10px;
+padding-left:10px;
+font-size:14px;
+}
+QLineEDit:focus
+{
+border:2px solid #1DB954;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="releaseYearLabel">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>200</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;
+font-size:13pt;
+font-weight:bold;
+
+</string>
+    </property>
+    <property name="text">
+     <string>Release Year</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="releaseYearSpinBox">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>270</y>
+      <width>81</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QSpinBox
+{
+background:#202020;
+color:white;
+border:2px solid #303030;
+border-radius:10px;
+padding-left: 10px;
+}
+QSpinBox:focus
+{
+border:2px solid #1DB954;
+}</string>
+    </property>
+    <property name="minimum">
+     <number>1900</number>
+    </property>
+    <property name="maximum">
+     <number>2100</number>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>100</y>
+     <width>231</width>
+     <height>371</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QGroupBox
+{
+color:white;
+font-weight:bold;
+border:2px solid #303030;
+border-radius:12px;
+margin-top:12px;
+}
+
+QGroupBox::title
+{
+subcontrol-origin:margin;
+left:10px;
+padding:0 5px;
+}
+</string>
+   </property>
+   <property name="title">
+    <string/>
+   </property>
+   <widget class="QLabel" name="coverLabel">
+    <property name="geometry">
+     <rect>
+      <x>29</x>
+      <y>40</y>
+      <width>181</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLabel
+{
+border:2px dashed #555555;
+border-radius:12px;
+color:#888888;
+}</string>
+    </property>
+    <property name="text">
+     <string>Album Cover</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="chooseCoverButton">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>270</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+background:#1DB954;
+collor:white;
+border:none;
+border-radius:12px;
+padding:10px;
+font-weight:bold;
+}
+QPushButton:hover
+{background:#1ED760;
+}
+QPushButton:pressed
+{
+background:#169C46;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Choose Cover</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
