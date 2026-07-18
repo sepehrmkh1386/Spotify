@@ -20,6 +20,7 @@ SOURCES += \
     artistrepository.cpp \
     authenticationservice.cpp \
     listener.cpp \
+    listenerdashboard.cpp \
     listenerrepository.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     artistrepository.h \
     authenticationservice.h \
     listener.h \
+    listenerdashboard.h \
     listenerrepository.h \
     mainwindow.h \
     playlist.h \
@@ -58,6 +60,7 @@ FORMS += \
     addsongdialog.ui \
     albumdetailsdialog.ui \
     artistdashboard.ui \
+    listenerdashboard.ui \
     mainwindow.ui \
     selectsongdialog.ui
 

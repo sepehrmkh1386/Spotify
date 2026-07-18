@@ -2,6 +2,7 @@
 #include "ui_albumdetailsdialog.h"
 
 #include <QListWidgetItem>
+#include <QMessageBox>
 
 #include "repositorymanager.h"
 #include "selectsongdialog.h"
@@ -71,7 +72,38 @@ void AlbumDetailsDialog::on_addSongButton_clicked()
 }
 void AlbumDetailsDialog::on_removeSongButton_clicked()
 {
-    // مرحله بعد پیاده‌سازی می‌کنیم
+    QListWidgetItem *item = ui->songsList->currentItem();
+
+    if(item == nullptr)
+    {
+        QMessageBox::warning(
+            this,
+            "Error",
+            "Please select a song."
+            );
+
+        return;
+    }
+
+    int songId = item->data(Qt::UserRole).toInt();
+
+    Song *song =
+        RepositoryManager::instance().songs().getById(songId);
+
+    if(song == nullptr)
+        return;
+
+    song->setAlbumId(0);
+
+    RepositoryManager::instance().songs().update(*song);
+
+    loadSongs();
+
+    QMessageBox::information(
+        this,
+        "Success",
+        "Song removed from album."
+        );
 }
 
 void AlbumDetailsDialog::on_closeButton_clicked()

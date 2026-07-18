@@ -11,6 +11,7 @@ debug/artistdashboard.o
 debug/artistrepository.o
 debug/authenticationservice.o
 debug/listener.o
+debug/listenerdashboard.o
 debug/listenerrepository.o
 debug/main.o
 debug/mainwindow.o
@@ -24,5 +25,6 @@ debug/moc_addalbumdialog.o
 debug/moc_addsongdialog.o
 debug/moc_albumdetailsdialog.o
 debug/moc_artistdashboard.o
+debug/moc_listenerdashboard.o
 debug/moc_mainwindow.o
 debug/moc_selectsongdialog.o

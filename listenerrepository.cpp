@@ -117,7 +117,7 @@ void ListenerRepository::load()
 }
 void ListenerRepository::save()
 {
-    QFile file("Data/artists.txt");
+    QFile file("Data/listener.txt");
 
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;

@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ListenerDashboard</class>
+ <widget class="QMainWindow" name="ListenerDashboard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget
+{
+background-color:#121212;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>10</y>
+      <width>131</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>22</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#1DB954</string>
+    </property>
+    <property name="text">
+     <string>Spotify</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="searchEdit">
+    <property name="geometry">
+     <rect>
+      <x>142</x>
+      <y>70</y>
+      <width>491</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit
+{
+background:#181818;
+color:white;
+border:2px solid #333333;
+border-radius:10px;
+padding-left:10px;
+font-size:14px;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>Search songs or albums...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="searchButton">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>70</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+background:#1DB954;
+color:white;
+border-radius:10px;
+}
+QPushButton:hover
+{
+background:#26d665;
+}</string>
+    </property>
+    <property name="text">
+     <string>Search</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="songLabel">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>130</y>
+      <width>81</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>Songs</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="albumsLabel">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>130</y>
+      <width>101</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>Albums</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="playlistsLabel">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>340</y>
+      <width>111</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:white;</string>
+    </property>
+    <property name="text">
+     <string>Playlists</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="songsList">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>180</y>
+      <width>256</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget
+{
+background:#181818;
+color:white;
+border:2px solid #333333;
+border-radius:12px;
+font-size:14px;
+}
+QListWidget::item
+{
+padding:10px;
+}
+QListWidget::item:selected
+{
+background:#1DB954;
+color:white;
+}</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="albumsList">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>180</y>
+      <width>256</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget
+{
+background:#181818;
+color:white;
+border:2px solid #333333;
+border-radius:12px;
+font-size:14px;
+}
+QListWidget::item
+{
+padding:10px;
+}
+QListWidget::item:selected
+{
+background:#1DB954;
+color:white;
+}</string>
+    </property>
+   </widget>
+   <widget class="QListWidget" name="playlistsList">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>390</y>
+      <width>256</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QListWidget
+{
+background:#181818;
+color:white;
+border:2px solid #333333;
+border-radius:12px;
+font-size:14px;
+}
+QListWidget::item
+{
+padding:10px;
+}
+QListWidget::item:selected
+{
+background:#1DB954;
+color:white;
+}</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>10</y>
+      <width>93</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton
+{
+background:#D32F2F;
+color:white;
+border-radius:10px;
+
+}
+QPushButton:hover
+{
+background:#F44336;
+}</string>
+    </property>
+    <property name="text">
+     <string>Logout</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
