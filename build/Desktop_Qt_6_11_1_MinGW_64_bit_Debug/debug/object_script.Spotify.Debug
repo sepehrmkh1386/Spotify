@@ -6,6 +6,7 @@ debug/addsongdialog.o
 debug/album.o
 debug/albumdetailsdialog.o
 debug/albumrepository.o
+debug/albumviewerdialog.o
 debug/artist.o
 debug/artistdashboard.o
 debug/artistrepository.o
@@ -24,6 +25,7 @@ debug/songrepository.o
 debug/moc_addalbumdialog.o
 debug/moc_addsongdialog.o
 debug/moc_albumdetailsdialog.o
+debug/moc_albumviewerdialog.o
 debug/moc_artistdashboard.o
 debug/moc_listenerdashboard.o
 debug/moc_mainwindow.o

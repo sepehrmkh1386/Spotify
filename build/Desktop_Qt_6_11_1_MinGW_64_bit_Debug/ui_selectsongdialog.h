@@ -24,7 +24,7 @@ public:
     QLabel *titleLabel;
     QListWidget *songsList;
     QPushButton *addButton;
-    QPushButton *pushButton;
+    QPushButton *cancelButton;
 
     void setupUi(QDialog *SelectSongDialog)
     {
@@ -83,10 +83,10 @@ public:
 "{\n"
 "background:#24cf5f;\n"
 "}"));
-        pushButton = new QPushButton(SelectSongDialog);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(400, 420, 141, 51));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
+        cancelButton = new QPushButton(SelectSongDialog);
+        cancelButton->setObjectName("cancelButton");
+        cancelButton->setGeometry(QRect(400, 420, 141, 51));
+        cancelButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "background:#333333;\n"
 "color:white;\n"
@@ -108,7 +108,7 @@ public:
         SelectSongDialog->setWindowTitle(QCoreApplication::translate("SelectSongDialog", "Dialog", nullptr));
         titleLabel->setText(QCoreApplication::translate("SelectSongDialog", "Add Song to Album", nullptr));
         addButton->setText(QCoreApplication::translate("SelectSongDialog", "Add Song", nullptr));
-        pushButton->setText(QCoreApplication::translate("SelectSongDialog", "Cancel", nullptr));
+        cancelButton->setText(QCoreApplication::translate("SelectSongDialog", "Cancel", nullptr));
     } // retranslateUi
 
 };

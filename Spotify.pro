@@ -15,6 +15,7 @@ SOURCES += \
     album.cpp \
     albumdetailsdialog.cpp \
     albumrepository.cpp \
+    albumviewerdialog.cpp \
     artist.cpp \
     artistdashboard.cpp \
     artistrepository.cpp \
@@ -40,6 +41,7 @@ HEADERS += \
     album.h \
     albumdetailsdialog.h \
     albumrepository.h \
+    albumviewerdialog.h \
     artist.h \
     artistdashboard.h \
     artistrepository.h \
@@ -59,6 +61,7 @@ FORMS += \
     addalbumdialog.ui \
     addsongdialog.ui \
     albumdetailsdialog.ui \
+    albumviewerdialog.ui \
     artistdashboard.ui \
     listenerdashboard.ui \
     mainwindow.ui \

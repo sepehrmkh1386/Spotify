@@ -6,6 +6,7 @@ release/addsongdialog.o
 release/album.o
 release/albumdetailsdialog.o
 release/albumrepository.o
+release/albumviewerdialog.o
 release/artist.o
 release/artistdashboard.o
 release/artistrepository.o
@@ -24,6 +25,7 @@ release/songrepository.o
 release/moc_addalbumdialog.o
 release/moc_addsongdialog.o
 release/moc_albumdetailsdialog.o
+release/moc_albumviewerdialog.o
 release/moc_artistdashboard.o
 release/moc_listenerdashboard.o
 release/moc_mainwindow.o

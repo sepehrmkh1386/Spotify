@@ -105,7 +105,7 @@ background:#24cf5f;
     <string>Add Song</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
     <rect>
      <x>400</x>

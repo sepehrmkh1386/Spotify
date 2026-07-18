@@ -3,6 +3,7 @@
 
 #include "repositorymanager.h"
 #include "mainwindow.h"
+#include "albumviewerdialog.h"
 
 #include <QListWidgetItem>
 
@@ -149,7 +150,20 @@ void ListenerDashboard::on_searchButton_clicked()
 
 void ListenerDashboard::on_albumsList_itemDoubleClicked(QListWidgetItem *item)
 {
-    Q_UNUSED(item)
+    if(item == nullptr)
+        return;
 
-    // مرحله بعد پیاده‌سازی می‌کنیم
+    int albumId = item->data(Qt::UserRole).toInt();
+
+    Album *album =
+        RepositoryManager::instance().albums().getById(albumId);
+
+    if(album == nullptr)
+        return;
+
+    AlbumViewerDialog dialog(this);
+
+    dialog.setAlbum(*album);
+
+    dialog.exec();
 }
