@@ -43,7 +43,11 @@ template <> constexpr inline auto ArtistDashboard::qt_create_metaobjectdata<qt_m
         "",
         "on_logoutButton_clicked",
         "on_deleteSongButton_clicked",
-        "on_editSongButton_clicked"
+        "on_editSongButton_clicked",
+        "on_addAlbumButton_clicked",
+        "on_AlbumList_itemDoubleClicked",
+        "QListWidgetItem*",
+        "item"
     };
 
     QtMocHelpers::UintData qt_methods {
@@ -55,6 +59,12 @@ template <> constexpr inline auto ArtistDashboard::qt_create_metaobjectdata<qt_m
         QtMocHelpers::SlotData<void()>(4, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'on_editSongButton_clicked'
         QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_addAlbumButton_clicked'
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'on_AlbumList_itemDoubleClicked'
+        QtMocHelpers::SlotData<void(QListWidgetItem *)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 },
+        }}),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -82,10 +92,11 @@ void ArtistDashboard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int 
         case 1: _t->on_logoutButton_clicked(); break;
         case 2: _t->on_deleteSongButton_clicked(); break;
         case 3: _t->on_editSongButton_clicked(); break;
+        case 4: _t->on_addAlbumButton_clicked(); break;
+        case 5: _t->on_AlbumList_itemDoubleClicked((*reinterpret_cast<std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *ArtistDashboard::metaObject() const
@@ -107,14 +118,14 @@ int ArtistDashboard::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 6;
     }
     return _id;
 }

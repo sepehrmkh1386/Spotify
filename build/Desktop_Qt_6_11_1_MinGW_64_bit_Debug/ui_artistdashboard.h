@@ -29,7 +29,7 @@ public:
     QLabel *titleLabel;
     QGroupBox *groupBox;
     QListWidget *AlbumList;
-    QPushButton *addAlbumButton_2;
+    QPushButton *addAlbumButton;
     QGroupBox *groupBox_2;
     QListWidget *SongsList;
     QPushButton *addSongButton;
@@ -85,10 +85,10 @@ public:
 "color:white;\n"
 "padding:6px;\n"
 "}"));
-        addAlbumButton_2 = new QPushButton(groupBox);
-        addAlbumButton_2->setObjectName("addAlbumButton_2");
-        addAlbumButton_2->setGeometry(QRect(92, 300, 141, 31));
-        addAlbumButton_2->setStyleSheet(QString::fromUtf8("QPushButton\n"
+        addAlbumButton = new QPushButton(groupBox);
+        addAlbumButton->setObjectName("addAlbumButton");
+        addAlbumButton->setGeometry(QRect(92, 300, 141, 31));
+        addAlbumButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "background-color :#1DB954;\n"
 "color:white;\n"
@@ -204,7 +204,7 @@ public:
         ArtistDashboard->setWindowTitle(QCoreApplication::translate("ArtistDashboard", "MainWindow", nullptr));
         titleLabel->setText(QCoreApplication::translate("ArtistDashboard", "Artist Dashboard", nullptr));
         groupBox->setTitle(QCoreApplication::translate("ArtistDashboard", "Your Albums", nullptr));
-        addAlbumButton_2->setText(QCoreApplication::translate("ArtistDashboard", "Create Album", nullptr));
+        addAlbumButton->setText(QCoreApplication::translate("ArtistDashboard", "Create Album", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("ArtistDashboard", "Your Songs", nullptr));
         addSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Create Songs", nullptr));
         deleteSongButton->setText(QCoreApplication::translate("ArtistDashboard", "Delete Song", nullptr));

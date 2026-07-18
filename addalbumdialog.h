@@ -23,6 +23,7 @@ private slots:
 private:
     Ui::AddAlbumDialog *ui;
     QString selectedCoverPath;
+
 };
 
 #endif // ADDALBUMDIALOG_H

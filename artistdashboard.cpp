@@ -5,12 +5,16 @@
 #include "repositorymanager.h"
 #include "addsongdialog.h"
 #include <QMessageBox>
+#include <QListWidgetItem>
+#include"addalbumdialog.h"
+#include "albumdetailsdialog.h"
 ArtistDashboard::ArtistDashboard(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ArtistDashboard)
 {
     ui->setupUi(this);
     loadSongs();
+    loadAlbums();
 }
 
 ArtistDashboard::~ArtistDashboard()
@@ -112,4 +116,48 @@ void ArtistDashboard::on_editSongButton_clicked()
         loadSongs();
     }
 }
+void ArtistDashboard::loadAlbums()
+{
+    ui->AlbumList->clear();
 
+    QList<Album> albums = RepositoryManager::instance().albums().getAll();
+
+    for(const Album &album :albums)
+    {
+        QListWidgetItem *item = new QListWidgetItem(album.getName());
+        item->setData(Qt::UserRole , album.getId());
+
+        ui->AlbumList->addItem(item);
+    }
+}
+
+void ArtistDashboard::on_addAlbumButton_clicked()
+{
+    AddAlbumDialog dialog(this);
+
+    if(dialog.exec() == QDialog::Accepted)
+    {
+        loadAlbums();
+    }
+}
+
+
+void ArtistDashboard::on_AlbumList_itemDoubleClicked(QListWidgetItem *item)
+{
+    if(item == nullptr)
+        return;
+
+    int albumId = item->data(Qt::UserRole).toInt();
+
+    Album *album =
+        RepositoryManager::instance().albums().getById(albumId);
+
+    if(album == nullptr)
+        return;
+
+    AlbumDetailsDialog dialog(this);
+
+    dialog.setAlbum(*album);
+
+    dialog.exec();
+}

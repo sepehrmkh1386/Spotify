@@ -22,7 +22,7 @@ AddAlbumDialog::~AddAlbumDialog()
 
 void AddAlbumDialog::on_chooseCoverButton_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this,"Select Cover","","Images(*.png *.jpg * .jpeg)");
+    QString fileName = QFileDialog::getOpenFileName(this,"Select Cover","","Images(*.png *.jpg *.jpeg)");
     if(fileName.isEmpty())
         return;
 

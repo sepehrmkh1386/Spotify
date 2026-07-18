@@ -89,7 +89,7 @@ padding:6px;
 }</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="addAlbumButton_2">
+    <widget class="QPushButton" name="addAlbumButton">
      <property name="geometry">
       <rect>
        <x>92</x>

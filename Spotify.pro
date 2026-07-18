@@ -13,6 +13,7 @@ SOURCES += \
     addalbumdialog.cpp \
     addsongdialog.cpp \
     album.cpp \
+    albumdetailsdialog.cpp \
     albumrepository.cpp \
     artist.cpp \
     artistdashboard.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
     playlist.cpp \
     playlistrepository.cpp \
     repositorymanager.cpp \
+    selectsongdialog.cpp \
     song.cpp \
     songrepository.cpp
 
@@ -35,6 +37,7 @@ HEADERS += \
     addalbumdialog.h \
     addsongdialog.h \
     album.h \
+    albumdetailsdialog.h \
     albumrepository.h \
     artist.h \
     artistdashboard.h \
@@ -46,14 +49,17 @@ HEADERS += \
     playlist.h \
     playlistrepository.h \
     repositorymanager.h \
+    selectsongdialog.h \
     song.h \
     songrepository.h
 
 FORMS += \
     addalbumdialog.ui \
     addsongdialog.ui \
+    albumdetailsdialog.ui \
     artistdashboard.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    selectsongdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
