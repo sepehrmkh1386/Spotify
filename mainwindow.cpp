@@ -97,7 +97,17 @@ void MainWindow::on_loginButton_clicked()
     }
     else if(user->getRole() == Role::Listener)
     {
-        ListenerDashboard *dashboard = new ListenerDashboard();
+        Listener *listener = dynamic_cast <Listener*>(user);
+
+        if(listener == nullptr)
+        {
+            QMessageBox::warning(this,
+                                 "Error",
+                                 "Listener not found.");
+            return;
+        }
+
+        ListenerDashboard *dashboard = new ListenerDashboard(listener);
 
         dashboard->show();
 

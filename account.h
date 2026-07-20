@@ -19,7 +19,9 @@ private:
     Role role;
     QString profilePhoto;
 
+
 public:
+    virtual ~Account() = default;
     Account();
     Account(int id,
             QString fullName,

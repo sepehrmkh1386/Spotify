@@ -9,26 +9,30 @@ class Playlist
 private:
     int id;
     QString name;
-    int ListenerId;
+    int listenerId;
     QList<int> songIds;
+
 public:
     Playlist();
+
     Playlist(int id,
              QString name,
-             int ListenerId);
+             int listenerId);
 
-//Getter
+    // Getters
     int getId() const;
-    QString getName()const;
-    int getListenerId()const;
-    QList <int> getSongIds()const;
-//Setter
-    void setName(const QString &name);
-    void setListenerId(int ListenerId);
+    QString getName() const;
+    int getListenerId() const;
+    QList<int> getSongIds() const;
 
+    // Setters
+    void setName(const QString &name);
+    void setListenerId(int listenerId);
+    void setSongIds(const QList<int> &songs);
+
+    // Song Management
     void addSong(int songId);
     void removeSong(int songId);
-
 };
 
 #endif // PLAYLIST_H

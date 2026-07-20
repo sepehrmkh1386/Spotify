@@ -16,14 +16,16 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    ~MainWindow() override;
+    ~MainWindow();
+
+private slots:
+    void on_signUpButton_clicked();
+    void on_loginButton_clicked();
 
 private:
     Ui::MainWindow *ui;
 
     AuthenticationService authService;
-private slots:
-    void on_signUpButton_clicked();
-    void on_loginButton_clicked();
 };
+
 #endif // MAINWINDOW_H

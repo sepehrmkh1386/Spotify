@@ -11,6 +11,7 @@ release/artist.o
 release/artistdashboard.o
 release/artistrepository.o
 release/authenticationservice.o
+release/createplaylistdialog.o
 release/listener.o
 release/listenerdashboard.o
 release/listenerrepository.o
@@ -27,6 +28,7 @@ release/moc_addsongdialog.o
 release/moc_albumdetailsdialog.o
 release/moc_albumviewerdialog.o
 release/moc_artistdashboard.o
+release/moc_createplaylistdialog.o
 release/moc_listenerdashboard.o
 release/moc_mainwindow.o
 release/moc_selectsongdialog.o

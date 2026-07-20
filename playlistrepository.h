@@ -13,6 +13,7 @@ public:
     void add(const Playlist &item) override;
     void remove(int id)override;
     void update(const Playlist &item)override;
+    int generateNextId();
     Playlist* getById(int id) override;
     QList<Playlist> getAll()override;
 

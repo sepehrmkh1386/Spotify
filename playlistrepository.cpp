@@ -1,12 +1,13 @@
 #include "playlistrepository.h"
-#include<QFile>
-#include<QTextStream>
-#include<QStringList>
+
+#include <QFile>
+#include <QTextStream>
+#include <QStringList>
 
 PlaylistRepository::PlaylistRepository()
 {
-
 }
+
 void PlaylistRepository::add(const Playlist &item)
 {
     data.append(item);
@@ -55,6 +56,19 @@ QList<Playlist> PlaylistRepository::getAll()
     return data;
 }
 
+int PlaylistRepository::generateNextId()
+{
+    int maxId = 0;
+
+    for(const Playlist &playlist : data)
+    {
+        if(playlist.getId() > maxId)
+            maxId = playlist.getId();
+    }
+
+    return maxId + 1;
+}
+
 void PlaylistRepository::save()
 {
     QFile file("Data/playlists.txt");
@@ -64,14 +78,23 @@ void PlaylistRepository::save()
 
     QTextStream out(&file);
 
-    for(int i = 0; i < data.size(); i++)
+    for(const Playlist &playlist : data)
     {
-        const Playlist &playlist = data.at(i);
+        out << playlist.getId() << "|";
+        out << playlist.getName() << "|";
+        out << playlist.getListenerId() << "|";
 
-        out << playlist.getId() << "|"
-            << playlist.getName() << "|"
-            << playlist.getListenerId()
-            << "\n";
+        QList<int> songs = playlist.getSongIds();
+
+        for(int i = 0; i < songs.size(); i++)
+        {
+            out << songs[i];
+
+            if(i != songs.size() - 1)
+                out << ",";
+        }
+
+        out << "\n";
     }
 
     file.close();
@@ -97,7 +120,7 @@ void PlaylistRepository::load()
 
         QStringList parts = line.split('|');
 
-        if(parts.size() != 3)
+        if(parts.size() != 4)
             continue;
 
         Playlist playlist(
@@ -105,6 +128,18 @@ void PlaylistRepository::load()
             parts[1],
             parts[2].toInt()
             );
+
+        QList<int> songs;
+
+        if(!parts[3].isEmpty())
+        {
+            QStringList ids = parts[3].split(',');
+
+            for(const QString &id : ids)
+                songs.append(id.toInt());
+        }
+
+        playlist.setSongIds(songs);
 
         data.append(playlist);
     }

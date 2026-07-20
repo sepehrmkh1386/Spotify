@@ -4,15 +4,17 @@
 #include "repositorymanager.h"
 #include "mainwindow.h"
 #include "albumviewerdialog.h"
+#include "createplaylistdialog.h"
 
 #include <QListWidgetItem>
+#include <QMessageBox>
 
-ListenerDashboard::ListenerDashboard(QWidget *parent)
+ListenerDashboard::ListenerDashboard(Listener *listener ,QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::ListenerDashboard)
 {
     ui->setupUi(this);
-
+    currentListener = listener;
     loadSongs();
     loadAlbums();
     loadPlaylists();
@@ -167,3 +169,150 @@ void ListenerDashboard::on_albumsList_itemDoubleClicked(QListWidgetItem *item)
 
     dialog.exec();
 }
+
+void ListenerDashboard::loadPlaylistSongs(int playlistId)
+{
+
+    ui->playlistSongsList->clear();
+
+    Playlist *playlist =
+        RepositoryManager::instance().playlists().getById(playlistId);
+
+    if(playlist == nullptr)
+        return;
+
+    QList<int> songIds = playlist->getSongIds();
+
+    for(int id : songIds)
+    {
+        Song *song =
+            RepositoryManager::instance().songs().getById(id);
+
+        if(song == nullptr)
+            continue;
+
+        QString text =
+            QString("%1   •   %2   •   %3")
+                .arg(song->getName())
+                .arg(song->getGenre())
+                .arg(song->getReleaseYear());
+
+        QListWidgetItem *item =
+            new QListWidgetItem(text);
+
+        item->setData(Qt::UserRole, song->getId());
+
+
+        ui->playlistSongsList->addItem(item);
+    }
+}
+void ListenerDashboard::on_playlistsList_itemClicked(QListWidgetItem *item)
+{
+    if(item == nullptr)
+        return;
+
+    int playlistId = item->data(Qt::UserRole).toInt();
+
+    loadPlaylistSongs(playlistId);
+}
+
+
+void ListenerDashboard::on_addToPlaylistButton_clicked()
+{
+    QListWidgetItem *songItem = ui->songsList->currentItem();
+    QListWidgetItem *playlistItem = ui->playlistsList->currentItem();
+
+    if(songItem == nullptr || playlistItem == nullptr)
+    {
+        QMessageBox::warning(
+            this,
+            "Error",
+            "Please select both a song and a playlist."
+            );
+        return;
+    }
+
+    int songId = songItem->data(Qt::UserRole).toInt();
+    int playlistId = playlistItem->data(Qt::UserRole).toInt();
+
+    Playlist *playlist =
+        RepositoryManager::instance().playlists().getById(playlistId);
+
+    if(playlist == nullptr)
+        return;
+
+    playlist->addSong(songId);
+
+    RepositoryManager::instance().playlists().update(*playlist);
+
+    loadPlaylistSongs(playlistId);
+
+    QMessageBox::information(
+        this,
+        "Success",
+        "Song added to playlist."
+        );
+}
+
+
+
+
+
+void ListenerDashboard::on_removeFromPlaylistButton_clicked()
+{
+    QListWidgetItem *songItem =
+        ui->playlistSongsList->currentItem();
+
+    QListWidgetItem *playlistItem =
+        ui->playlistsList->currentItem();
+
+    if(songItem == nullptr || playlistItem == nullptr)
+    {
+        QMessageBox::warning(
+            this,
+            "Error",
+            "Please select a playlist and a song."
+            );
+        return;
+    }
+
+    int songId =
+        songItem->data(Qt::UserRole).toInt();
+
+    int playlistId =
+        playlistItem->data(Qt::UserRole).toInt();
+
+    Playlist *playlist =
+        RepositoryManager::instance().playlists().getById(playlistId);
+
+    if(playlist == nullptr)
+        return;
+
+    playlist->removeSong(songId);
+
+    RepositoryManager::instance().playlists().update(*playlist);
+
+    loadPlaylistSongs(playlistId);
+
+    QMessageBox::information(
+        this,
+        "Success",
+        "Song removed from playlist."
+        );
+}
+
+
+
+
+void ListenerDashboard::on_createPlaylistButton_clicked()
+{
+    CreatePlaylistDialog dialog(this);
+
+    dialog.setListenerId(currentListener->getId());
+
+    if(dialog.exec() == QDialog::Accepted)
+    {
+        loadPlaylists();
+    }
+}
+

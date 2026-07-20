@@ -18,6 +18,7 @@
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -35,7 +36,14 @@ public:
     QListWidget *songsList;
     QListWidget *albumsList;
     QListWidget *playlistsList;
-    QPushButton *pushButton;
+    QPushButton *logoutButton;
+    QLabel *playlistSongsLabel;
+    QListWidget *playlistSongsList;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
+    QPushButton *addToPlaylistButton;
+    QPushButton *removeFromPlaylistButton;
+    QPushButton *createPlaylistButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,7 +51,7 @@ public:
     {
         if (ListenerDashboard->objectName().isEmpty())
             ListenerDashboard->setObjectName("ListenerDashboard");
-        ListenerDashboard->resize(800, 600);
+        ListenerDashboard->resize(800, 649);
         ListenerDashboard->setStyleSheet(QString::fromUtf8("QWidget\n"
 "{\n"
 "background-color:#121212;\n"
@@ -53,7 +61,7 @@ public:
         centralwidget->setObjectName("centralwidget");
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(320, 10, 131, 51));
+        label->setGeometry(QRect(230, 0, 341, 51));
         QFont font;
         font.setPointSize(22);
         font.setBold(true);
@@ -61,7 +69,7 @@ public:
         label->setStyleSheet(QString::fromUtf8("color:#1DB954"));
         searchEdit = new QLineEdit(centralwidget);
         searchEdit->setObjectName("searchEdit");
-        searchEdit->setGeometry(QRect(142, 70, 491, 31));
+        searchEdit->setGeometry(QRect(142, 60, 491, 31));
         searchEdit->setStyleSheet(QString::fromUtf8("QLineEdit\n"
 "{\n"
 "background:#181818;\n"
@@ -74,7 +82,7 @@ public:
 ""));
         searchButton = new QPushButton(centralwidget);
         searchButton->setObjectName("searchButton");
-        searchButton->setGeometry(QRect(20, 70, 93, 29));
+        searchButton->setGeometry(QRect(20, 60, 93, 29));
         searchButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "background:#1DB954;\n"
@@ -87,7 +95,7 @@ public:
 "}"));
         songLabel = new QLabel(centralwidget);
         songLabel->setObjectName("songLabel");
-        songLabel->setGeometry(QRect(140, 130, 81, 41));
+        songLabel->setGeometry(QRect(140, 120, 81, 41));
         QFont font1;
         font1.setPointSize(16);
         font1.setBold(true);
@@ -95,17 +103,17 @@ public:
         songLabel->setStyleSheet(QString::fromUtf8("color:white;"));
         albumsLabel = new QLabel(centralwidget);
         albumsLabel->setObjectName("albumsLabel");
-        albumsLabel->setGeometry(QRect(560, 130, 101, 41));
+        albumsLabel->setGeometry(QRect(560, 120, 101, 41));
         albumsLabel->setFont(font1);
         albumsLabel->setStyleSheet(QString::fromUtf8("color:white;"));
         playlistsLabel = new QLabel(centralwidget);
         playlistsLabel->setObjectName("playlistsLabel");
-        playlistsLabel->setGeometry(QRect(340, 340, 111, 41));
+        playlistsLabel->setGeometry(QRect(120, 330, 111, 41));
         playlistsLabel->setFont(font1);
         playlistsLabel->setStyleSheet(QString::fromUtf8("color:white;"));
         songsList = new QListWidget(centralwidget);
         songsList->setObjectName("songsList");
-        songsList->setGeometry(QRect(60, 180, 256, 141));
+        songsList->setGeometry(QRect(60, 170, 256, 141));
         songsList->setStyleSheet(QString::fromUtf8("QListWidget\n"
 "{\n"
 "background:#181818;\n"
@@ -125,7 +133,7 @@ public:
 "}"));
         albumsList = new QListWidget(centralwidget);
         albumsList->setObjectName("albumsList");
-        albumsList->setGeometry(QRect(480, 180, 256, 141));
+        albumsList->setGeometry(QRect(480, 170, 256, 141));
         albumsList->setStyleSheet(QString::fromUtf8("QListWidget\n"
 "{\n"
 "background:#181818;\n"
@@ -145,7 +153,7 @@ public:
 "}"));
         playlistsList = new QListWidget(centralwidget);
         playlistsList->setObjectName("playlistsList");
-        playlistsList->setGeometry(QRect(270, 390, 256, 141));
+        playlistsList->setGeometry(QRect(60, 380, 256, 141));
         playlistsList->setStyleSheet(QString::fromUtf8("QListWidget\n"
 "{\n"
 "background:#181818;\n"
@@ -163,10 +171,10 @@ public:
 "background:#1DB954;\n"
 "color:white;\n"
 "}"));
-        pushButton = new QPushButton(centralwidget);
-        pushButton->setObjectName("pushButton");
-        pushButton->setGeometry(QRect(690, 10, 93, 29));
-        pushButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
+        logoutButton = new QPushButton(centralwidget);
+        logoutButton->setObjectName("logoutButton");
+        logoutButton->setGeometry(QRect(690, 10, 93, 29));
+        logoutButton->setStyleSheet(QString::fromUtf8("QPushButton\n"
 "{\n"
 "background:#D32F2F;\n"
 "color:white;\n"
@@ -177,6 +185,62 @@ public:
 "{\n"
 "background:#F44336;\n"
 "}"));
+        playlistSongsLabel = new QLabel(centralwidget);
+        playlistSongsLabel->setObjectName("playlistSongsLabel");
+        playlistSongsLabel->setGeometry(QRect(520, 330, 181, 41));
+        playlistSongsLabel->setFont(font1);
+        playlistSongsLabel->setStyleSheet(QString::fromUtf8("color:white;"));
+        playlistSongsList = new QListWidget(centralwidget);
+        playlistSongsList->setObjectName("playlistSongsList");
+        playlistSongsList->setGeometry(QRect(480, 380, 251, 141));
+        playlistSongsList->setStyleSheet(QString::fromUtf8("QListWidget\n"
+"{\n"
+"background:#181818;\n"
+"color:white;\n"
+"border:2px solid #333333;\n"
+"border-radius:12px;\n"
+"font-size:14px;\n"
+"}\n"
+"QListWidget::item\n"
+"{\n"
+"padding:10px;\n"
+"}\n"
+"QListWidget::item:selected\n"
+"{\n"
+"background:#1DB954;\n"
+"color:white;\n"
+"}"));
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(310, 520, 171, 73));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName("verticalLayout");
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        addToPlaylistButton = new QPushButton(layoutWidget);
+        addToPlaylistButton->setObjectName("addToPlaylistButton");
+        addToPlaylistButton->setStyleSheet(QString::fromUtf8("background:#2E8B57;\n"
+"color:white;\n"
+"border-radius:8px;\n"
+"padding:6px;"));
+
+        verticalLayout->addWidget(addToPlaylistButton);
+
+        removeFromPlaylistButton = new QPushButton(layoutWidget);
+        removeFromPlaylistButton->setObjectName("removeFromPlaylistButton");
+        removeFromPlaylistButton->setStyleSheet(QString::fromUtf8("background:#E67E22;\n"
+"color:white;\n"
+"border-radius:8px;\n"
+"padding:6px;"));
+
+        verticalLayout->addWidget(removeFromPlaylistButton);
+
+        createPlaylistButton = new QPushButton(centralwidget);
+        createPlaylistButton->setObjectName("createPlaylistButton");
+        createPlaylistButton->setGeometry(QRect(120, 530, 111, 29));
+        createPlaylistButton->setStyleSheet(QString::fromUtf8("background:#2E8B57;\n"
+"color:white;\n"
+"border-radius:8px;\n"
+"padding:6px;"));
         ListenerDashboard->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ListenerDashboard);
         menubar->setObjectName("menubar");
@@ -194,13 +258,17 @@ public:
     void retranslateUi(QMainWindow *ListenerDashboard)
     {
         ListenerDashboard->setWindowTitle(QCoreApplication::translate("ListenerDashboard", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("ListenerDashboard", "Spotify", nullptr));
+        label->setText(QCoreApplication::translate("ListenerDashboard", "Listener Dashboard", nullptr));
         searchEdit->setText(QCoreApplication::translate("ListenerDashboard", "Search songs or albums...", nullptr));
         searchButton->setText(QCoreApplication::translate("ListenerDashboard", "Search", nullptr));
         songLabel->setText(QCoreApplication::translate("ListenerDashboard", "Songs", nullptr));
         albumsLabel->setText(QCoreApplication::translate("ListenerDashboard", "Albums", nullptr));
         playlistsLabel->setText(QCoreApplication::translate("ListenerDashboard", "Playlists", nullptr));
-        pushButton->setText(QCoreApplication::translate("ListenerDashboard", "Logout", nullptr));
+        logoutButton->setText(QCoreApplication::translate("ListenerDashboard", "Logout", nullptr));
+        playlistSongsLabel->setText(QCoreApplication::translate("ListenerDashboard", "Playlist Songs", nullptr));
+        addToPlaylistButton->setText(QCoreApplication::translate("ListenerDashboard", "Add To Playlist", nullptr));
+        removeFromPlaylistButton->setText(QCoreApplication::translate("ListenerDashboard", "Remove From Playlist", nullptr));
+        createPlaylistButton->setText(QCoreApplication::translate("ListenerDashboard", "Create Playlist", nullptr));
     } // retranslateUi
 
 };

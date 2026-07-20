@@ -2,47 +2,64 @@
 
 Playlist::Playlist()
 {
-
 }
 
 Playlist::Playlist(int id,
                    QString name,
-                   int ListenerId)
+                   int listenerId)
 {
     this->id = id;
     this->name = name;
-    this->ListenerId = ListenerId;
+    this->listenerId = listenerId;
 }
-//Getter
-int Playlist::getId()const
+
+// Getters
+
+int Playlist::getId() const
 {
     return id;
 }
-QString Playlist::getName()const
+
+QString Playlist::getName() const
 {
     return name;
 }
-int Playlist::getListenerId()const
+
+int Playlist::getListenerId() const
 {
-    return ListenerId;
+    return listenerId;
 }
-QList<int> Playlist::getSongIds()const
+
+QList<int> Playlist::getSongIds() const
 {
     return songIds;
 }
-//Setter
+
+// Setters
+
 void Playlist::setName(const QString &name)
 {
-    this-> name = name;
+    this->name = name;
 }
-void Playlist::setListenerId(int ListenerId)
+
+void Playlist::setListenerId(int listenerId)
 {
-    this->ListenerId=ListenerId;
+    this->listenerId = listenerId;
 }
+
+void Playlist::setSongIds(const QList<int> &songs)
+{
+    songIds = songs;
+}
+
+// Song Management
+
 void Playlist::addSong(int songId)
 {
-    songIds.append(songId);
+    if(!songIds.contains(songId))
+        songIds.append(songId);
 }
+
 void Playlist::removeSong(int songId)
 {
     songIds.removeOne(songId);
